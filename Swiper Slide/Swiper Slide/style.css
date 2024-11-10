@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20231203/pngtree-natural-background-purple-flower-texture-image_13817203.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 55px;
+  margin: 50px 0;
+}
+
+.swiper {
+  width: 80%;
+  height: 80%;
+  max-width: 600px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease, opacity 0.5s ease;
+}
+
+.image-container .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  backface-visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  color: #ffffff;
+  font-size: 1.2em;
+  line-height: 1.4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para mejorar legibilidad */
+  border-radius: 15px;
+}
+
+.image-container.flipped .back {
+  opacity: 1;
+}
+
+.image-container.flipped img {
+  transform: rotateY(180deg);
+  opacity: 0.1; /* Imagen tenue cuando está volteada */
+}
+
+.image-container .back p {
+  font-weight: bold;
+  color: #ffffff; /* Texto completamente blanco */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9); /* Sombra intensa para mejorar la legibilidad */
+}
+
+.heart {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  color: #8a4bf7; /* Color lila */
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+  color: #d18ff9; /* Un lila más claro para el hover */
+}
+
+.heart.liked {
+  color: #ff69b4; /* Color rosado al marcar como 'me gusta' */
+}

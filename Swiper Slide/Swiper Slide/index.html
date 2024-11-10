@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liza's Gallery</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <!-- Link to your custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Tu Esencia Verdadera</h1>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Imagen 1 -->
+      <div class="swiper-slide">
+        <div class="image-container">
+          <img src="1.jpeg" alt="Image 1" class="front">
+          <div class="back" style="background-image: url('1.jpeg');">
+            <p>Quiero que sepas que estoy muy orgulloso de ti, talvez muchas personas no lo noten, pero yo si valoro lo que haces dia a dia, desde el momento en que te levantas hasta antes de irte a dormir. Nunca dudes de ti porque eres una persona muy maravillosa.</p>
+          </div>
+        </div>
+        <button class="heart" onclick="toggleHeartAndFlip(this)">❤️</button>
+      </div>
+
+      <!-- Imagen 2 -->
+      <div class="swiper-slide">
+        <div class="image-container">
+          <img src="2.jpeg" alt="Image 2" class="front">
+          <div class="back" style="background-image: url('2.jpg');">
+            <p>Te quiero asi, como eres con todo lo bueno que no ves, con todo lo malo que dices tener.QUE AHUN NO LOGRO VER.</p>
+          </div>
+        </div>
+        <button class="heart" onclick="toggleHeartAndFlip(this)">❤️</button>
+      </div>
+
+      <!-- Imagen 3 -->
+      <div class="swiper-slide">
+        <div class="image-container">
+          <img src="3.jpg" alt="Image 3" class="front">
+          <div class="back" style="background-image: url('3.jpg');">
+            <p>La fuerza interior está en ti, aunque no lo percibas.</p>
+          </div>
+        </div>
+        <button class="heart" onclick="toggleHeartAndFlip(this)">❤️</button>
+      </div>
+
+      <!-- Más imágenes como en tu código original -->
+
+      <div class="swiper-slide">
+        <div class="image-container">
+          <img src="4.jpeg" alt="Image 4" class="front">
+          <div class="back" style="background-image: url('4.jpeg');">
+            <p>La fuerza interior está en ti, aunque no lo percibas.</p>
+          </div>
+        </div>
+        <button class="heart" onclick="toggleHeartAndFlip(this)">❤️</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Agregar música -->
+  <audio id="musica" autoplay loop>
+    <source src="musica/sentimental.mp3" type="audio/mp3">
+    Tu navegador no soporta la etiqueta de audio.
+  </audio>
+  
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 15,
+        stretch: 0,
+        depth: 300,
+        modifier: 1,
+        slideShadows: true,
+      },
+      loop: false,
+      on: {
+        slideChange: function () {
+          document.querySelectorAll('.image-container').forEach((container) => {
+            container.classList.remove('flipped');
+          });
+        },
+      },
+    });
+
+    function toggleHeartAndFlip(button) {
+      var imageContainer = button.closest('.swiper-slide').querySelector('.image-container');
+      imageContainer.classList.toggle("flipped");
+      button.classList.toggle("liked");
+    }
+  </script>
+</body>
+</html>
